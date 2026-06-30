@@ -1,0 +1,62 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">iDebate Logo</title>
+  <desc id="desc">Minimal premium app icon logo for iDebate, combining a lowercase i and a debate microphone.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#FFFFFF"/>
+
+  <path
+    d="M244 348C244 288.35 292.35 240 352 240H672C731.65 240 780 288.35 780 348V585C780 644.65 731.65 693 672 693H545.5L443 794V693H352C292.35 693 244 644.65 244 585V348Z"
+    stroke="#C62828"
+    stroke-width="54"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M512 315C555.63 315 591 350.37 591 394V453C591 496.63 555.63 532 512 532C468.37 532 433 496.63 433 453V394C433 350.37 468.37 315 512 315Z"
+    fill="#C62828"
+  />
+  <path
+    d="M512 592C566.12 592 610 548.12 610 494V462"
+    stroke="#C62828"
+    stroke-width="42"
+    stroke-linecap="round"
+  />
+  <path
+    d="M414 462V494C414 548.12 457.88 592 512 592"
+    stroke="#C62828"
+    stroke-width="42"
+    stroke-linecap="round"
+  />
+  <path
+    d="M512 592V716"
+    stroke="#C62828"
+    stroke-width="58"
+    stroke-linecap="round"
+  />
+  <path
+    d="M442 716H582"
+    stroke="#C62828"
+    stroke-width="58"
+    stroke-linecap="round"
+  />
+
+  <circle cx="512" cy="256" r="58" fill="#F5B400"/>
+  <path
+    d="M486 382H538"
+    stroke="#F5B400"
+    stroke-width="24"
+    stroke-linecap="round"
+  />
+  <path
+    d="M486 435H538"
+    stroke="#F5B400"
+    stroke-width="24"
+    stroke-linecap="round"
+  />
+  <path
+    d="M443 794L545.5 693H618"
+    stroke="#F5B400"
+    stroke-width="28"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -1,0 +1,22 @@
+{
+  "name": "idebate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "iDebate - Debate growth profile and team management mini program",
+  "scripts": {
+    "dev:api": "npm run start:dev -w @idebate/api",
+    "build:api": "npm run build -w @idebate/api",
+    "prisma:generate": "npm run prisma:generate -w @idebate/api",
+    "prisma:migrate": "npm run prisma:migrate -w @idebate/api",
+    "seed": "npm run seed -w @idebate/api"
+  },
+  "workspaces": [
+    "apps/api",
+    "apps/miniprogram",
+    "packages/shared"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

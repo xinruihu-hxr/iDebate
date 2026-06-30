@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS idebate
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_unicode_ci;
+
+CREATE USER IF NOT EXISTS 'idebate'@'%' IDENTIFIED BY 'idebate_password';
+GRANT ALL PRIVILEGES ON idebate.* TO 'idebate'@'%';
+FLUSH PRIVILEGES;

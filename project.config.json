@@ -1,0 +1,32 @@
+{
+  "description": "iDebate WeChat Mini Program",
+  "miniprogramRoot": "apps/miniprogram/miniprogram/",
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "iDebate",
+  "setting": {
+    "useCompilerPlugins": [
+      "typescript"
+    ],
+    "es6": true,
+    "enhance": true,
+    "minified": true,
+    "postcss": true,
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "ignoreUploadUnusedFiles": true
+  },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {},
+  "srcMiniprogramRoot": "apps/miniprogram/miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "libVersion": "2.32.3",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
+}
