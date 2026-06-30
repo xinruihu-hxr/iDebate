@@ -1,0 +1,277 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum DebateSide {
+  AFFIRMATIVE
+  NEGATIVE
+}
+
+enum DebatePosition {
+  FIRST
+  SECOND
+  THIRD
+  FOURTH
+}
+
+enum MatchResult {
+  WIN
+  LOSE
+}
+
+enum MatchPlayerType {
+  TEAMMATE
+  OPPONENT
+}
+
+enum TeamRole {
+  LEADER
+  ADMIN
+  MEMBER
+}
+
+enum TeamJoinStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum TitleRuleType {
+  WIN_RATE
+  MATCH_COUNT
+  ABILITY_SCORE
+}
+
+enum AbilityDimension {
+  ARGUMENT
+  QUESTION
+  CROSS_EXAMINATION
+  FREE_DEBATE
+  SUMMARY
+  TEAMWORK
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  openid        String         @unique
+  unionid       String?        @unique
+  nickname      String
+  avatarUrl     String?
+  school        String?
+  major         String?
+  grade         String?
+  bio           String?        @db.Text
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  matches       Match[]
+  matchParticipants MatchParticipant[]
+  givenPeerReviews    PeerReview[] @relation("PeerReviewReviewer")
+  receivedPeerReviews PeerReview[] @relation("PeerReviewTarget")
+  teamMembers   TeamMember[]
+  ownedTeams    Team[]         @relation("TeamOwner")
+  userTitles    UserTitle[]
+  lineupMembers LineupMember[]
+
+  @@index([school])
+}
+
+model Match {
+  id                    Int             @id @default(autoincrement())
+  userId                Int
+  name                  String
+  eventName             String
+  topic                 String          @db.Text
+  matchTime             DateTime
+  side                  DebateSide
+  position              DebatePosition
+  result                MatchResult
+  score                 Int
+  isBestDebater         Boolean         @default(false)
+  videoUrl              String?
+  review                String?         @db.Text
+  argumentScore         Int
+  questionScore         Int
+  crossExaminationScore Int
+  freeDebateScore       Int
+  summaryScore          Int
+  teamworkScore         Int
+  highlightTags         Json?
+  problemTags           Json?
+  roleTags              Json?
+  teamId                Int?
+  lineupId              Int?
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+
+  user                  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team                  Team?           @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  lineup                Lineup?         @relation(fields: [lineupId], references: [id], onDelete: SetNull)
+  players               MatchPlayer[]
+  peerReviews           PeerReview[]
+  participants          MatchParticipant[]
+
+  @@index([userId, matchTime])
+  @@index([teamId, matchTime])
+  @@index([result])
+  @@index([side])
+  @@index([position])
+}
+
+model MatchParticipant {
+  id        Int            @id @default(autoincrement())
+  matchId   Int
+  userId    Int
+  position  DebatePosition
+  side      DebateSide?
+  isCreator Boolean        @default(false)
+  createdAt DateTime       @default(now())
+
+  match     Match          @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([matchId, userId])
+  @@index([userId])
+  @@index([matchId])
+}
+
+model PeerReview {
+  id                Int      @id @default(autoincrement())
+  matchId           Int
+  reviewerId        Int
+  targetUserId      Int
+  peerHighlightTags Json?
+  peerProblemTags   Json?
+  peerScore         Int
+  comment           String?  @db.VarChar(100)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  match             Match    @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  reviewer          User     @relation("PeerReviewReviewer", fields: [reviewerId], references: [id], onDelete: Cascade)
+  targetUser        User     @relation("PeerReviewTarget", fields: [targetUserId], references: [id], onDelete: Cascade)
+
+  @@unique([matchId, reviewerId, targetUserId])
+  @@index([matchId])
+  @@index([reviewerId])
+  @@index([targetUserId])
+}
+
+model MatchPlayer {
+  id        Int             @id @default(autoincrement())
+  matchId   Int
+  type      MatchPlayerType
+  name      String
+  school    String?
+  position  DebatePosition
+  createdAt DateTime        @default(now())
+
+  match     Match           @relation(fields: [matchId], references: [id], onDelete: Cascade)
+
+  @@index([matchId])
+  @@index([type])
+}
+
+model Team {
+  id          Int          @id @default(autoincrement())
+  ownerId     Int
+  name        String
+  description String?      @db.Text
+  school      String
+  logoUrl     String?
+  inviteCode  String       @unique
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  owner       User         @relation("TeamOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  members     TeamMember[]
+  matches     Match[]
+  lineups     Lineup[]
+
+  @@index([ownerId])
+  @@index([school])
+}
+
+model TeamMember {
+  id        Int            @id @default(autoincrement())
+  teamId    Int
+  userId    Int
+  role      TeamRole       @default(MEMBER)
+  status    TeamJoinStatus @default(APPROVED)
+  joinedAt  DateTime       @default(now())
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  team      Team           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, userId])
+  @@index([userId])
+  @@index([teamId, status])
+}
+
+model Title {
+  id               Int               @id @default(autoincrement())
+  name             String            @unique
+  description      String
+  iconUrl          String?
+  ruleType         TitleRuleType
+  abilityDimension AbilityDimension?
+  thresholdValue   Decimal           @db.Decimal(6, 2)
+  isActive         Boolean           @default(true)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  userTitles       UserTitle[]
+
+  @@index([ruleType])
+  @@index([isActive])
+}
+
+model UserTitle {
+  id       Int      @id @default(autoincrement())
+  userId   Int
+  titleId  Int
+  earnedAt DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title    Title    @relation(fields: [titleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, titleId])
+  @@index([userId])
+  @@index([titleId])
+}
+
+model Lineup {
+  id        Int            @id @default(autoincrement())
+  teamId    Int
+  name      String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  team      Team           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  members   LineupMember[]
+  matches   Match[]
+
+  @@index([teamId])
+}
+
+model LineupMember {
+  id        Int             @id @default(autoincrement())
+  lineupId  Int
+  userId    Int
+  position  DebatePosition
+  createdAt DateTime        @default(now())
+
+  lineup    Lineup          @relation(fields: [lineupId], references: [id], onDelete: Cascade)
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([lineupId, position])
+  @@unique([lineupId, userId])
+  @@index([userId])
+}
