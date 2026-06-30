@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/match/index",
+    "pages/match-detail/index",
+    "pages/match-edit/index",
+    "pages/team/index",
+    "pages/team/create",
+    "pages/team/join",
+    "pages/team-detail/index",
+    "pages/team-edit/index",
+    "pages/team-requests/index",
+    "pages/team-member/index",
+    "pages/report/index",
+    "pages/peer-review/index",
+    "pages/peer-review/form",
+    "pages/profile/setup",
+    "pages/profile/edit",
+    "pages/my/index",
+    "pages/profile/index",
+    "pages/debater-profile/index",
+    "pages/user-home/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "iDebate",
+    "navigationBarBackgroundColor": "#ebdb79",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff7d6"
+  },
+  "tabBar": {
+    "color": "#222222",
+    "selectedColor": "#8f1d1d",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "\u9996\u9875",
+        "iconPath": "assets/tab/home-normal.png",
+        "selectedIconPath": "assets/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/match/index",
+        "text": "\u6bd4\u8d5b",
+        "iconPath": "assets/tab/match-normal.png",
+        "selectedIconPath": "assets/tab/match-active.png"
+      },
+      {
+        "pagePath": "pages/team/index",
+        "text": "\u961f\u4f0d",
+        "iconPath": "assets/tab/team-normal.png",
+        "selectedIconPath": "assets/tab/team-active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "\u6211\u7684",
+        "iconPath": "assets/tab/profile-normal.png",
+        "selectedIconPath": "assets/tab/profile-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
