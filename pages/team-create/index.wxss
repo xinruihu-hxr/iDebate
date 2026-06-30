@@ -1,0 +1,10 @@
+@import "../../app.wxss";
+
+.create-button {
+  background: #8f1d1d;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.save-space {
+  height: 34rpx;
+}

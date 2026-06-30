@@ -1,0 +1,4 @@
+<view class="stat-card">
+  <view class="value">{{ value }}</view>
+  <view class="label">{{ label }}</view>
+</view>

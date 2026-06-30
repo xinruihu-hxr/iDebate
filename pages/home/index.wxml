@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="hero-card">
+    <view>
+      <text class="app-title">iDebate</text>
+      <text class="app-slogan">记录每一场辩论，见证每一次成长</text>
+    </view>
+    <view class="stats-overview">
+      <view class="stat-item">
+        <text class="stat-value">{{ stats.winRate }}%</text>
+        <text class="stat-label">总胜率</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{ stats.totalMatches }}</text>
+        <text class="stat-label">总场次</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{ stats.bestPosition }}</text>
+        <text class="stat-label">最佳辩位</text>
+      </view>
+    </view>
+    <view class="ability-box">
+      <view class="ability-row" wx:for="{{ abilities }}" wx:key="label">
+        <text class="ability-label">{{ item.label }}</text>
+        <view class="ability-track">
+          <view class="ability-fill" style="width: {{ item.width }}"></view>
+        </view>
+        <text class="ability-value">{{ item.value }}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <view class="sub-card pro-card" bindtap="toAddMatch">
+      <text class="card-title">新增比赛</text>
+      <text class="card-desc">RECORD MATCH</text>
+      <view class="card-icon">+</view>
+    </view>
+    <view class="sub-card con-card">
+      <text class="card-title">最近称号</text>
+      <view class="badge-list">
+        <text class="badge-text" wx:for="{{ titles }}" wx:key="*this">{{ item }}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">最近比赛</view>
+  <view class="panel match-card-home" wx:for="{{ matches }}" wx:key="id" bindtap="toMatchDetail" data-id="{{ item.id }}">
+    <view class="row">
+      <view>
+        <text class="pill {{ item.result === 'WIN' ? '' : 'dark' }}">{{ item.resultText }}</text>
+        <text class="match-name">{{ item.name }}</text>
+      </view>
+      <text class="muted">{{ item.matchTime }}</text>
+    </view>
+    <view class="match-topic">{{ item.topic }}</view>
+    <view class="row muted">
+      <text>{{ item.sideText }} · {{ item.positionText }}</text>
+      <text>{{ item.score }}/10</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">队友互评</text>
+    <text class="app-slogan">不用打分很复杂，只需选择你对队友本场表现的真实印象。</text>
+  </view>
+
+  <view class="panel intro-panel">
+    <view class="intro-title">可选填写，帮助队友完善能力画像</view>
+    <view class="intro-desc">和你一起上场的队友，也许能看到你没注意到的表现。</view>
+  </view>
+
+  <view class="section-title">可评价队友</view>
+  <view class="panel target-card" wx:for="{{ targets }}" wx:key="userId">
+    <view class="row">
+      <view>
+        <view class="target-name">{{ item.nickname }}</view>
+        <view class="muted">{{ item.position }}</view>
+      </view>
+      <view wx:if="{{ item.reviewed }}" class="reviewed-pill">已评价</view>
+      <view wx:else class="review-button" bindtap="toForm" data-id="{{ item.userId }}">去评价</view>
+    </view>
+  </view>
+  <view class="panel empty-panel" wx:if="{{ targets.length === 0 }}">本场暂无可评价队友</view>
+</view>

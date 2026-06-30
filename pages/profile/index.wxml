@@ -1,0 +1,64 @@
+<view class="page">
+  <block wx:if="{{ profile }}">
+    <view class="profile-card">
+      <view class="avatar-wrap">
+        <image wx:if="{{ profile.avatarUrl }}" class="avatar" src="{{ profile.avatarUrl }}" mode="aspectFill" />
+        <view wx:else class="avatar fallback">{{ avatarText }}</view>
+      </view>
+      <view class="profile-main">
+        <view class="profile-name">{{ profile.nickname }}</view>
+        <view class="profile-meta">{{ profile.school }} · {{ profile.grade }}</view>
+        <view class="profile-meta">{{ profile.major || '未填写专业' }}</view>
+      </view>
+      <view class="edit-button" bindtap="toEditProfile">编辑资料</view>
+    </view>
+
+    <view class="action-section">
+      <view class="sub-card white-card full-card" bindtap="toUserHome">
+        <text class="card-title">辩手主页</text>
+        <text class="card-desc">PLAYER CARD</text>
+        <view class="card-icon">›</view>
+      </view>
+    </view>
+
+    <view class="action-section">
+      <view class="sub-card title-card">
+        <text class="card-title">称号</text>
+        <text class="card-desc">TITLE WALL</text>
+        <view class="badge-row">
+          <text class="badge-text" wx:for="{{ titles }}" wx:key="*this">{{ item }}</text>
+        </view>
+      </view>
+      <view class="sub-card red-card" bindtap="viewMonthlyReport">
+        <text class="card-title">月度报告</text>
+        <text class="card-desc">MONTHLY REPORT</text>
+        <view class="card-icon">›</view>
+      </view>
+    </view>
+
+    <view class="section-title">我的队伍</view>
+    <view wx:if="{{ teams.length }}" class="panel team-list">
+      <view class="team-row" wx:for="{{ teams }}" wx:key="id" data-id="{{ item.id }}" bindtap="toTeamDetail">
+        <view class="team-logo">
+          <image wx:if="{{ item.logoUrl }}" src="{{ item.logoUrl }}" mode="aspectFill" />
+          <text wx:else>{{ item.logoText }}</text>
+        </view>
+        <view class="team-info">
+          <view class="team-name">{{ item.name }}</view>
+          <view class="team-meta">{{ item.memberCount }} 名成员 · 我的身份：{{ item.myRole }}</view>
+        </view>
+        <view class="team-arrow">›</view>
+      </view>
+    </view>
+    <view wx:else class="empty-card">
+      <view class="empty-title">还没有加入队伍</view>
+      <view class="empty-desc">创建或加入队伍后，就可以按队伍选择阵容并同步比赛记录。</view>
+    </view>
+
+    <view class="section-title">设置</view>
+    <view class="panel settings-card">
+      <view class="setting-row"><text>账号状态</text><text>已登录</text></view>
+      <view class="setting-row"><text>资料规则</text><text>编辑页修改</text></view>
+    </view>
+  </block>
+</view>

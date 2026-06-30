@@ -1,0 +1,182 @@
+page {
+  background: #fff7d6;
+}
+
+.report-scroll {
+  height: 100vh;
+  background: #fff7d6;
+}
+
+.report-card {
+  min-height: 100vh;
+  padding: 96rpx 56rpx 72rpx;
+  box-sizing: border-box;
+  color: #222222;
+  background: #fff7d6;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  margin-bottom: 28rpx;
+  color: #222222;
+  font-size: 22rpx;
+  font-weight: 700;
+  letter-spacing: 8rpx;
+}
+
+.big-title {
+  color: #222222;
+  font-size: 76rpx;
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.headline {
+  color: #222222;
+  font-size: 42rpx;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.mega-number {
+  margin: 36rpx 0 8rpx;
+  color: #8f1d1d;
+  font-size: 138rpx;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.mega-number.green {
+  color: #8f1d1d;
+}
+
+.unit {
+  color: #222222;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.story {
+  margin-top: 42rpx;
+  color: #222222;
+  font-size: 30rpx;
+  line-height: 1.75;
+}
+
+.keyword {
+  color: #8f1d1d;
+  font-weight: 900;
+}
+
+.subtitle {
+  margin-top: 44rpx;
+  color: #222222;
+  font-size: 30rpx;
+  line-height: 1.7;
+}
+
+.gold-line {
+  width: 150rpx;
+  height: 8rpx;
+  margin-top: 46rpx;
+  background: #ebdb79;
+}
+
+.profile-block {
+  display: flex;
+  align-items: center;
+  margin-top: 90rpx;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96rpx;
+  height: 96rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #8f1d1d;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.profile-name {
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.muted-text {
+  margin-top: 8rpx;
+  color: #222222;
+  font-size: 24rpx;
+}
+
+.lineup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22rpx;
+  margin-top: 56rpx;
+}
+
+.lineup-grid view {
+  padding: 26rpx;
+  border: 4rpx solid #8f1d1d;
+  background: #ffffff;
+}
+
+.lineup-grid text {
+  display: block;
+  color: #222222;
+  font-size: 22rpx;
+}
+
+.lineup-name {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.big-topic {
+  margin-top: 40rpx;
+  color: #222222;
+  font-size: 42rpx;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.report-actions {
+  margin-top: 72rpx;
+}
+
+.report-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  margin-top: 22rpx;
+  border: 4rpx solid #8f1d1d;
+  color: #222222;
+  background: #ffffff;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.report-button.primary {
+  border-color: #8f1d1d;
+  color: #ffffff;
+  background: #8f1d1d;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

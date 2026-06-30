@@ -1,0 +1,14 @@
+.lineup {
+  padding: 24rpx;
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.muted {
+  margin-top: 10rpx;
+  color: #222222;
+}

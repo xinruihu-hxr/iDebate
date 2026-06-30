@@ -1,0 +1,146 @@
+@import "../../app.wxss";
+
+.compact-hero {
+  padding-bottom: 34rpx;
+}
+
+.save-space {
+  height: 28rpx;
+}
+
+.review-help {
+  margin-bottom: 28rpx;
+  color: #222222;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.step-title {
+  margin-bottom: 22rpx;
+  color: #8f1d1d;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.lineup-help,
+.warning-text {
+  margin-bottom: 20rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.warning-text {
+  padding: 16rpx;
+  border: 3rpx solid #8f1d1d;
+  background: #fff7d6;
+  font-weight: 800;
+}
+
+.empty-team {
+  border-style: dashed;
+}
+
+.empty-title {
+  color: #222222;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.empty-desc {
+  margin-top: 12rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.empty-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.mini-button {
+  flex: 1;
+  padding: 18rpx 12rpx;
+  border: 3rpx solid #8f1d1d;
+  background: #ffffff;
+  color: #8f1d1d;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 900;
+}
+
+.mini-button.primary {
+  background: #8f1d1d;
+  color: #ffffff;
+}
+
+.tag-group {
+  margin-bottom: 34rpx;
+}
+
+.tag-group:last-child {
+  margin-bottom: 0;
+}
+
+.tag-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+}
+
+.tag-title {
+  color: #222222;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.tag-limit {
+  color: #222222;
+  font-size: 22rpx;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.tag-chip {
+  padding: 12rpx 20rpx;
+  border: 3rpx solid #8f1d1d;
+  border-radius: 999rpx;
+  color: #222222;
+  background: #ffffff;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.tag-chip.active {
+  color: #ffffff;
+  background: #8f1d1d;
+}
+
+.member-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+  margin-bottom: 16rpx;
+}
+
+.member-chip {
+  padding: 10rpx 18rpx;
+  border: 3rpx solid #8f1d1d;
+  border-radius: 999rpx;
+  color: #222222;
+  background: #ffffff;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.member-chip.active {
+  color: #ffffff;
+  background: #8f1d1d;
+}

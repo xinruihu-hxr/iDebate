@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">加入队伍</text>
+    <text class="app-slogan">输入队长分享的邀请码</text>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">邀请码</text>
+      <input class="input invite-input" value="{{ inviteCode }}" bindinput="onInput" placeholder="例如：AXD2026" />
+    </view>
+    <view class="join-hint">加入后，你可以在创建比赛时选择该队伍成员组成阵容。</view>
+  </view>
+
+  <view class="save-space"></view>
+  <view class="button-primary" bindtap="submit">加入队伍</view>
+</view>

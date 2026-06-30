@@ -1,0 +1,15 @@
+.radar {
+  padding: 24rpx;
+  border-radius: 12rpx;
+  background: #ffffff;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.placeholder {
+  margin-top: 20rpx;
+  color: #222222;
+}

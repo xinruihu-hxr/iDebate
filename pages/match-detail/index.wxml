@@ -1,0 +1,59 @@
+<view class="page">
+  <block wx:if="{{ match }}">
+    <view class="hero-card">
+      <view class="row">
+        <text class="pill {{ match.result === 'WIN' ? '' : 'dark' }}">{{ match.resultText }}</text>
+        <text class="score">{{ match.score }}/10</text>
+      </view>
+      <text class="app-title detail-title">{{ match.name }}</text>
+      <text class="app-slogan">{{ match.eventName }} · {{ match.matchTime }}</text>
+    </view>
+
+    <view class="action-section">
+      <view class="sub-card pro-card" bindtap="toEdit">
+        <text class="card-title">编辑记录</text>
+        <text class="card-desc">UPDATE MATCH</text>
+        <view class="card-icon">›</view>
+      </view>
+      <view class="sub-card con-card" bindtap="removeMatch">
+        <text class="card-title">删除比赛</text>
+        <text class="card-desc">REMOVE</text>
+        <view class="card-icon">×</view>
+      </view>
+    </view>
+
+    <view class="section-title">辩题</view>
+    <view class="panel paragraph">{{ match.topic }}</view>
+
+    <view class="section-title">比赛信息</view>
+    <view class="panel">
+      <view class="info-row"><text>记录来源</text><text>{{ match.sourceText }}</text></view>
+      <view class="info-row"><text>记录人</text><text>{{ match.creatorName }}</text></view>
+      <view class="info-row"><text>持方</text><text>{{ match.sideText }}</text></view>
+      <view class="info-row"><text>辩位</text><text>{{ match.positionText }}</text></view>
+      <view class="info-row"><text>最佳辩手</text><text>{{ match.isBestDebater ? '是' : '否' }}</text></view>
+      <view class="info-row"><text>录像链接</text><text>{{ match.videoUrl || '未填写' }}</text></view>
+    </view>
+
+    <view class="button-danger unlink-button" wx:if="{{ !match.isCreator }}" bindtap="removeParticipant">这场比赛不是我</view>
+
+    <view class="section-title">队友互评</view>
+    <view class="panel peer-card">
+      <view class="peer-title">队友互评</view>
+      <view class="peer-desc">可选填写，帮助队友完善能力画像</view>
+      <view class="peer-note">和你一起上场的队友，也许能看到你没注意到的表现。</view>
+      <view class="peer-status">{{ peerStatus.statusText }}</view>
+      <view class="peer-meta">我收到的评价：{{ receivedCount }} 条 · 我给出的评价：{{ peerStatus.reviewedCount }}/{{ peerStatus.totalTargets }}</view>
+      <view class="peer-button" bindtap="toPeerReview">去评价队友</view>
+    </view>
+
+    <view class="section-title">阵容记录</view>
+    <view class="panel paragraph">
+      <view>队友：{{ match.teammatesText }}</view>
+      <view class="opponent-line">对手：{{ match.opponentsText }}</view>
+    </view>
+
+    <view class="section-title">复盘总结</view>
+    <view class="panel paragraph">{{ match.review || '还没有复盘总结。' }}</view>
+  </block>
+</view>

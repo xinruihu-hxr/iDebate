@@ -1,0 +1,25 @@
+<view class="page">
+  <block wx:if="{{ team }}">
+    <view class="hero-card">
+      <text class="app-title">加入申请</text>
+      <text class="app-slogan">{{ team.name }} · 队长审批入口</text>
+    </view>
+
+    <view class="section-title">待处理</view>
+    <view class="panel empty" wx:if="{{ hasNoRequests }}">暂无待审批申请</view>
+
+    <view class="panel request-card" wx:for="{{ requests }}" wx:key="id">
+      <view class="row">
+        <view>
+          <view class="member-name">{{ item.name }}</view>
+          <view class="muted">{{ item.school }} · {{ item.major }} · {{ item.grade }}</view>
+        </view>
+        <text class="pill">申请中</text>
+      </view>
+      <view class="request-actions">
+        <view class="small-button reject" bindtap="reject" data-id="{{ item.id }}">拒绝</view>
+        <view class="small-button approve" bindtap="approve" data-id="{{ item.id }}">通过</view>
+      </view>
+    </view>
+  </block>
+</view>

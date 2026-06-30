@@ -1,0 +1,91 @@
+<view class="page">
+  <view class="hero-card">
+    <text class="app-title">我的队伍</text>
+    <text class="app-slogan">共享战绩、阵容和能力画像</text>
+    <view class="stats-overview">
+      <view class="stat-item">
+        <text class="stat-value">{{ teamSummary.totalMatches }}</text>
+        <text class="stat-label">队伍比赛数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{ teamSummary.winRate }}%</text>
+        <text class="stat-label">综合胜率</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">队伍战绩</view>
+  <view class="panel record-panel">
+    <view class="pie-wrap">
+      <view class="pie-chart" style="{{ teamSummary.pieStyle }}">
+        <view class="pie-hole">
+          <text class="pie-rate">{{ teamSummary.winRate }}%</text>
+          <text class="pie-label">胜率</text>
+        </view>
+      </view>
+      <view class="pie-info">
+        <view class="legend-row">
+          <view class="legend-dot win-dot"></view>
+          <text>胜场 {{ teamSummary.totalWins }}</text>
+        </view>
+        <view class="legend-row">
+          <view class="legend-dot lose-dot"></view>
+          <text>负场 {{ teamSummary.totalLosses }}</text>
+        </view>
+        <view class="legend-total">共 {{ teamSummary.totalMatches }} 场队伍比赛</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">成员排行榜</view>
+  <view class="panel ranking-card" wx:for="{{ memberRankings }}" wx:key="name">
+    <view class="ranking-row">
+      <view class="rank-index">{{ item.rankNo }}</view>
+      <view class="rank-main">
+        <view class="row">
+          <view>
+            <view class="member-name">{{ item.name }}</view>
+            <view class="muted">{{ item.position }} · {{ item.role }}</view>
+          </view>
+          <view class="rank-score">{{ item.winRate }}%</view>
+        </view>
+        <view class="rank-meta">
+          <text>{{ item.matchCount }} 场</text>
+          <text>{{ item.wins }} 胜 / {{ item.losses }} 负</text>
+        </view>
+        <view class="rank-track">
+          <view class="rank-fill" style="width: {{ item.barWidth }}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">我的队伍</view>
+  <view class="panel team-card" wx:for="{{ teams }}" wx:key="id" bindtap="toDetail" data-id="{{ item.id }}" hover-class="team-card-hover">
+    <view class="row">
+      <view>
+        <view class="team-name">{{ item.name }}</view>
+        <view class="muted">{{ item.school }} · {{ item.members.length }} 名成员</view>
+      </view>
+      <text class="pill">队伍</text>
+    </view>
+    <view class="team-desc">{{ item.description }}</view>
+    <view class="row">
+      <view class="invite">邀请码：{{ item.inviteCode }}</view>
+      <view class="enter-button" catchtap="toDetail" data-id="{{ item.id }}">进入队伍</view>
+    </view>
+  </view>
+
+  <view class="action-section team-actions">
+    <view class="sub-card red-team-card" bindtap="toCreateTeam">
+      <text class="card-title">创建队伍</text>
+      <text class="card-desc">CREATE TEAM</text>
+      <view class="card-icon">+</view>
+    </view>
+    <view class="sub-card yellow-team-card" bindtap="toJoinTeam">
+      <text class="card-title">加入队伍</text>
+      <text class="card-desc">INVITE CODE</text>
+      <view class="card-icon">›</view>
+    </view>
+  </view>
+</view>

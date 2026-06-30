@@ -1,0 +1,51 @@
+<view class="page">
+  <block wx:if="{{ team }}">
+    <view class="hero-card">
+      <text class="app-title">{{ team.name }}</text>
+      <text class="app-slogan">{{ team.school }} · {{ team.description }}</text>
+      <view class="stats-overview">
+        <view class="stat-item">
+          <text class="stat-value">{{ stats.totalMatches }}</text>
+          <text class="stat-label">阵容总场次</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-value">{{ stats.winRate }}%</text>
+          <text class="stat-label">阵容胜率</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="action-section">
+      <view class="sub-card pro-card" bindtap="copyInviteCode" hover-class="sub-card-hover">
+        <text class="card-title">邀请码</text>
+        <text class="card-desc">{{ team.inviteCode }}</text>
+        <view class="card-icon">#</view>
+      </view>
+      <view class="sub-card red-card" bindtap="openLeaderPanel" hover-class="sub-card-hover">
+        <text class="card-title">队长权限</text>
+        <text class="card-desc">编辑 / 审批 / 移除 / 转让</text>
+        <view class="card-icon">›</view>
+      </view>
+    </view>
+
+    <view class="section-title">成员列表</view>
+    <view class="panel member-card" wx:for="{{ team.members }}" wx:key="name" bindtap="toMemberDetail" data-name="{{ item.name }}" hover-class="member-card-hover">
+      <view class="row">
+        <view>
+          <view class="member-name">{{ item.name }}</view>
+          <view class="muted">{{ item.position }} · 点击查看成员档案</view>
+        </view>
+        <text class="pill {{ item.role === '队长' ? '' : 'dark' }}">{{ item.role }}</text>
+      </view>
+    </view>
+
+    <view class="section-title">阵容历史</view>
+    <view class="panel history-card" wx:for="{{ recentMatches }}" wx:key="id">
+      <view class="row">
+        <text class="history-name">{{ item.name }}</text>
+        <text class="muted">{{ item.matchTime }}</text>
+      </view>
+      <view class="muted history-topic">{{ item.topic }}</view>
+    </view>
+  </block>
+</view>

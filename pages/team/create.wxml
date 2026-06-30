@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">创建队伍</text>
+    <text class="app-slogan">创建人会自动成为队长</text>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">队伍名称</text>
+      <input class="input" value="{{ form.name }}" data-field="name" bindinput="onInput" placeholder="例如：翱翔辩论队" />
+    </view>
+    <view class="field">
+      <text class="field-label">学校</text>
+      <input class="input" value="{{ form.school }}" data-field="school" bindinput="onInput" placeholder="请输入学校" />
+    </view>
+    <view class="field">
+      <text class="field-label">简介</text>
+      <textarea class="textarea" value="{{ form.description }}" data-field="description" bindinput="onInput" placeholder="写下队伍风格、训练方向或招新说明" />
+    </view>
+    <view class="field">
+      <text class="field-label">Logo 链接</text>
+      <input class="input" value="{{ form.logoUrl }}" data-field="logoUrl" bindinput="onInput" placeholder="可选" />
+    </view>
+  </view>
+
+  <view class="save-space"></view>
+  <view class="button-primary" bindtap="submit">创建队伍</view>
+</view>

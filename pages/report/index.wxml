@@ -1,0 +1,97 @@
+<scroll-view class="report-scroll" scroll-y enhanced>
+  <block wx:if="{{ hasReport && hasMatches }}">
+    <view class="report-card cover">
+      <view class="eyebrow">DEBATE REPORT</view>
+      <view class="big-title">{{ report.month }}月辩论报告</view>
+      <view class="gold-line"></view>
+      <view class="subtitle">每一次开口，都是成长的回响。</view>
+      <view class="profile-block">
+        <view class="avatar">{{ avatarText }}</view>
+        <view>
+          <view class="profile-name">{{ report.user.nickname }}</view>
+          <view class="muted-text">{{ report.user.teamName }}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">本月战场</view>
+      <view class="headline">你参加了</view>
+      <view class="mega-number">{{ report.matchCount }}</view>
+      <view class="unit">场比赛</view>
+      <view class="story">这个月，你在赛场上留下了 <text class="keyword">{{ report.matchCount }}</text> 次表达的痕迹。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">胜负之间</view>
+      <view class="mega-number green">{{ report.winRate }}%</view>
+      <view class="headline">本月胜率</view>
+      <view class="story">你赢下了 <text class="keyword">{{ report.winCount }}</text> 场比赛，也从 <text class="keyword">{{ report.loseCount }}</text> 场失利中带走了新的经验。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">常驻位置</view>
+      <view class="headline">你最常出现的位置是</view>
+      <view class="big-title">{{ report.mostUsedPosition }}</view>
+      <view class="story">这个位置出现了 <text class="keyword">{{ report.mostUsedPositionCount }}</text> 次。你习惯在攻防转换中寻找突破。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">最佳辩位</view>
+      <view class="big-title">{{ report.bestPosition }}</view>
+      <view class="mega-number green">{{ report.bestPositionWinRate }}%</view>
+      <view class="story">这个辩位平均评分 <text class="keyword">{{ report.bestPositionAverageScore }}</text>，是你本月最稳定的发挥区间。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">并肩作战</view>
+      <view class="headline">你最常一起比赛的队友是</view>
+      <view class="big-title">{{ report.favoriteTeammate }}</view>
+      <view class="story">你们一起完成了 <text class="keyword">{{ report.favoriteTeammateMatchCount }}</text> 场比赛，默契值正在形成。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">本月最佳阵容</view>
+      <view class="lineup-grid">
+        <view><text>一辩</text><text class="lineup-name">{{ report.bestLineup.first }}</text></view>
+        <view><text>二辩</text><text class="lineup-name">{{ report.bestLineup.second }}</text></view>
+        <view><text>三辩</text><text class="lineup-name">{{ report.bestLineup.third }}</text></view>
+        <view><text>四辩</text><text class="lineup-name">{{ report.bestLineup.fourth }}</text></view>
+      </view>
+      <view class="story">这套阵容出战 <text class="keyword">{{ report.bestLineup.matchCount }}</text> 场，胜率 <text class="keyword">{{ report.bestLineup.winRate }}%</text>，平均评分 <text class="keyword">{{ report.bestLineup.averageScore }}</text>。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">高光比赛</view>
+      <view class="headline">本月最高评分比赛</view>
+      <view class="big-topic">{{ report.highestScoreMatch.topic }}</view>
+      <view class="mega-number green">{{ report.highestScoreMatch.score }}</view>
+      <view class="story"><text class="keyword">{{ report.highestScoreMatch.result }} · {{ report.highestScoreMatch.position }}</text>。这可能是你本月最接近理想发挥的一场比赛。</view>
+    </view>
+
+    <view class="report-card">
+      <view class="eyebrow">能力成长</view>
+      <view class="headline">提升最明显的是</view>
+      <view class="big-title">{{ report.fastestGrowingAbility }}</view>
+      <view class="mega-number green">+{{ report.growthValue }}</view>
+      <view class="story">相比上个月，你在 <text class="keyword">{{ report.fastestGrowingAbility }}</text> 上的平均分继续向前。</view>
+    </view>
+
+    <view class="report-card summary">
+      <view class="eyebrow">SUMMARY</view>
+      <view class="big-title">继续让观点有力量</view>
+      <view class="story">这个月，你一共完成了 <text class="keyword">{{ report.matchCount }}</text> 场比赛，胜率 <text class="keyword">{{ report.winRate }}%</text>，最常担任 <text class="keyword">{{ report.mostUsedPosition }}</text>，最默契的队友是 <text class="keyword">{{ report.favoriteTeammate }}</text>。</view>
+      <view class="report-actions">
+        <view class="report-button primary" bindtap="backHome">返回首页</view>
+        <view class="report-button" bindtap="saveImage">保存报告图片</view>
+      </view>
+    </view>
+  </block>
+
+  <view class="report-card empty" wx:if="{{ hasReport && !hasMatches }}">
+    <view class="eyebrow">DEBATE REPORT</view>
+    <view class="big-title">这个月还没有比赛记录</view>
+    <view class="story">记录一场比赛后，iDebate 会为你生成专属辩论成长报告。</view>
+    <view class="report-button primary" bindtap="goRecordMatch">去记录比赛</view>
+  </view>
+</scroll-view>

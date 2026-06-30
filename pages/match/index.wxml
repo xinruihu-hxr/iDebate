@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">比赛记录</text>
+    <text class="app-slogan">每一场都是成长曲线上的坐标</text>
+  </view>
+
+  <view class="button-primary" bindtap="toAddMatch">新增比赛</view>
+
+  <view class="section-title">全部比赛</view>
+  <view class="panel match-card" wx:for="{{ matches }}" wx:key="id" bindtap="toDetail" data-id="{{ item.id }}">
+    <view class="row">
+      <view>
+        <text class="pill {{ item.result === 'WIN' ? '' : 'dark' }}">{{ item.resultText }}</text>
+        <text class="match-name">{{ item.name }}</text>
+      </view>
+      <text class="score">{{ item.score }}/10</text>
+    </view>
+    <view class="source-row">
+      <text class="source-pill">{{ item.sourceText }}</text>
+      <text wx:if="{{ !item.isCreator }}" class="muted">记录人：{{ item.creatorName }}</text>
+    </view>
+    <view class="topic">{{ item.topic }}</view>
+    <view class="row muted">
+      <text>{{ item.eventName }}</text>
+      <text>{{ item.matchTime }}</text>
+    </view>
+    <view class="meta muted">{{ item.sideText }} · {{ item.positionText }} · {{ item.isBestDebater ? '最佳辩手' : '常规表现' }}</view>
+  </view>
+</view>

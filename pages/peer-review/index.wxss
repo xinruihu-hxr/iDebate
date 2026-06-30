@@ -1,0 +1,52 @@
+@import "../../app.wxss";
+
+.compact-hero {
+  padding-bottom: 34rpx;
+}
+
+.intro-panel {
+  margin-bottom: 28rpx;
+}
+
+.intro-title {
+  color: #222222;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.intro-desc {
+  margin-top: 12rpx;
+  color: #222222;
+  font-size: 26rpx;
+  line-height: 1.5;
+}
+
+.target-card {
+  margin-bottom: 18rpx;
+}
+
+.target-name {
+  color: #222222;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.review-button,
+.reviewed-pill {
+  padding: 10rpx 18rpx;
+  border-radius: 18rpx;
+  color: #ffffff;
+  background: #8f1d1d;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.reviewed-pill {
+  color: #222222;
+  background: #ebdb79;
+}
+
+.empty-panel {
+  color: #222222;
+  font-size: 26rpx;
+}

@@ -1,0 +1,9 @@
+@import "../../app.wxss";
+
+.compact-hero {
+  padding-bottom: 34rpx;
+}
+
+.save-space {
+  height: 28rpx;
+}

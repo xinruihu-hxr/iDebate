@@ -1,0 +1,312 @@
+page {
+  min-height: 100vh;
+  background: #fff6dc;
+  color: #222222;
+  font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+.my-page {
+  min-height: 100vh;
+  padding: 32rpx 28rpx 48rpx;
+  box-sizing: border-box;
+}
+
+.profile-card,
+.feature-card,
+.login-card {
+  border-radius: 24rpx;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 28rpx;
+  border: 2rpx solid rgba(165, 30, 34, 0.32);
+  background: #ffffff;
+  box-shadow: 0 8rpx 0 rgba(165, 30, 34, 0.18);
+}
+
+.avatar-box,
+.avatar {
+  width: 112rpx;
+  height: 112rpx;
+  flex: 0 0 112rpx;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a51e22;
+  color: #ffffff;
+  font-size: 44rpx;
+  font-weight: 900;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nickname {
+  color: #222222;
+  font-size: 38rpx;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.meta,
+.major {
+  margin-top: 8rpx;
+  color: #777777;
+  font-size: 24rpx;
+  line-height: 1.35;
+}
+
+.edit-btn {
+  flex: 0 0 auto;
+  padding: 12rpx 18rpx;
+  border: 2rpx solid #a51e22;
+  border-radius: 999rpx;
+  background: #fff6dc;
+  color: #a51e22;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.hero-card {
+  margin-top: 30rpx;
+}
+
+.feature-area {
+  margin-top: 30rpx;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  min-height: 150rpx;
+  padding: 28rpx;
+}
+
+.feature-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.report-entry {
+  position: relative;
+  margin-top: 24rpx;
+  overflow: hidden;
+  background: #a51e22;
+}
+
+.report-dot {
+  width: 18rpx;
+  height: 72rpx;
+  border-radius: 999rpx;
+  background: #f5b400;
+}
+
+.report-title {
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.report-en {
+  margin-top: 6rpx;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 20rpx;
+  font-weight: 900;
+}
+
+.report-desc {
+  margin-top: 14rpx;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 24rpx;
+}
+
+.report-arrow {
+  color: #f5b400;
+  font-size: 54rpx;
+  font-weight: 900;
+}
+
+.login-card {
+  margin-top: 120rpx;
+  padding: 42rpx 34rpx;
+  border: 2rpx solid rgba(165, 30, 34, 0.28);
+  background: #ffffff;
+  box-shadow: 0 8rpx 0 rgba(165, 30, 34, 0.18);
+}
+
+.login-title {
+  color: #222222;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.login-desc {
+  margin-top: 14rpx;
+  color: #777777;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 86rpx;
+  margin-top: 34rpx;
+  border-radius: 24rpx;
+  background: #a51e22;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.title-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.title-badge {
+  padding: 10rpx 18rpx;
+  border-radius: 18rpx;
+  color: #ffffff;
+  background: #8f1d1d;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.ability-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+
+.ability-label {
+  width: 92rpx;
+  color: #222222;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.ability-track {
+  flex: 1;
+  height: 18rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+  background: rgba(143, 29, 29, 0.12);
+}
+
+.ability-fill {
+  height: 100%;
+  border-radius: 20rpx;
+  background: #8f1d1d;
+}
+
+.ability-value {
+  width: 58rpx;
+  text-align: right;
+  color: #8f1d1d;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.recommended-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26rpx;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #fff7d6;
+}
+
+.supplement-card {
+  margin-bottom: 26rpx;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #ffffff;
+  border: 3rpx solid #8f1d1d;
+}
+
+.supplement-desc {
+  display: block;
+  margin-top: 10rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.recommended-label {
+  color: #222222;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.recommended-value {
+  color: #8f1d1d;
+  font-size: 38rpx;
+  font-weight: 900;
+}
+
+.empty-title {
+  color: #222222;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.empty-desc {
+  margin-top: 14rpx;
+  color: #222222;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.tag-summary {
+  margin-bottom: 16rpx;
+}
+
+.summary-tag {
+  display: flex;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  color: #222222;
+  font-size: 26rpx;
+  font-weight: 800;
+}
+
+.summary-tag + .summary-tag {
+  border-top: 1rpx solid #ebdb79;
+}
+
+.summary-empty {
+  color: #222222;
+  font-size: 26rpx;
+}
+
+.match-row {
+  margin-bottom: 20rpx;
+}
+
+.match-name {
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.topic {
+  margin-top: 14rpx;
+  line-height: 1.45;
+}

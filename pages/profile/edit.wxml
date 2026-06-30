@@ -1,0 +1,38 @@
+<view class="page">
+  <block wx:if="{{ profile }}">
+    <view class="hero-card compact-hero">
+      <text class="app-title">编辑资料</text>
+      <text class="app-slogan">资料页默认只读，进入这里后才会修改</text>
+    </view>
+
+    <view class="panel">
+      <view class="field">
+        <text class="field-label">昵称</text>
+        <input class="input" value="{{ profile.nickname }}" data-field="nickname" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">学校</text>
+        <input class="input" value="{{ profile.school }}" data-field="school" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">年级</text>
+        <input class="input" value="{{ profile.grade }}" data-field="grade" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">专业</text>
+        <input class="input" value="{{ profile.major }}" data-field="major" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">头像链接</text>
+        <input class="input" value="{{ profile.avatarUrl }}" data-field="avatarUrl" bindinput="onInput" placeholder="可填写图片链接" />
+      </view>
+      <view class="field">
+        <text class="field-label">个人简介</text>
+        <textarea class="textarea" value="{{ profile.bio }}" data-field="bio" bindinput="onInput" />
+      </view>
+    </view>
+
+    <view class="save-space"></view>
+    <view class="button-primary" bindtap="submit">保存资料</view>
+  </block>
+</view>

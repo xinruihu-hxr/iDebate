@@ -1,0 +1,16 @@
+@import "../../app.wxss";
+@import "../match-edit/index.wxss";
+
+.star-list {
+  display: flex;
+  gap: 18rpx;
+}
+
+.star {
+  color: #ebdb79;
+  font-size: 54rpx;
+}
+
+.star.active {
+  color: #8f1d1d;
+}

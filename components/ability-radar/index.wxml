@@ -1,0 +1,4 @@
+<view class="radar">
+  <view class="title">{{ title }}</view>
+  <view class="placeholder">ECharts 雷达图将在统计模块接入。</view>
+</view>

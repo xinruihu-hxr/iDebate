@@ -1,0 +1,97 @@
+<view class="my-page">
+  <block wx:if="{{ isLoggedIn }}">
+    <view class="profile-card">
+      <view class="avatar-box">
+        <image wx:if="{{ profile.avatarUrl }}" class="avatar" src="{{ profile.avatarUrl }}" mode="aspectFill" />
+        <view wx:else class="avatar fallback">{{ avatarText }}</view>
+      </view>
+      <view class="profile-info">
+        <view class="nickname">{{ profile.nickname || '未命名辩手' }}</view>
+        <view class="meta">{{ profile.school || '未填写学校' }} · {{ profile.grade || '未填写年级' }}</view>
+        <view class="major">{{ profile.major || '未填写专业' }}</view>
+      </view>
+      <view class="edit-btn" bindtap="toEditProfile">编辑资料</view>
+    </view>
+
+    <view class="hero-card">
+      <text class="app-title">{{ profile.nickname }}</text>
+      <text class="app-slogan">{{ profile.school }} · {{ teamName }}</text>
+      <view class="stats-overview">
+        <view class="stat-item"><text class="stat-value">{{ stats.totalMatches }}</text><text class="stat-label">总场次</text></view>
+        <view class="stat-item"><text class="stat-value">{{ stats.winRate }}%</text><text class="stat-label">胜率</text></view>
+        <view class="stat-item"><text class="stat-value">{{ stats.bestPosition }}</text><text class="stat-label">最佳辩位</text></view>
+      </view>
+    </view>
+
+    <view class="section-title">称号墙</view>
+    <view class="panel title-wall">
+      <text class="title-badge" wx:for="{{ titles }}" wx:key="*this">{{ item }}</text>
+    </view>
+
+    <view class="section-title">能力画像</view>
+    <view class="panel" wx:if="{{ hasTagData }}">
+      <view class="recommended-card">
+        <text class="recommended-label">推荐辩位</text>
+        <text class="recommended-value">{{ recommendedPosition }}</text>
+      </view>
+      <view class="supplement-card">
+        <text class="recommended-label">互评补充度：{{ peerReviewSupplement }}%</text>
+        <text class="supplement-desc">队友评价可作为自评之外的补充参考。</text>
+      </view>
+      <view class="ability-row" wx:for="{{ abilities }}" wx:key="key">
+        <text class="ability-label">{{ item.label }}</text>
+        <view class="ability-track"><view class="ability-fill" style="width: {{ item.width }}"></view></view>
+        <text class="ability-value">{{ item.value }}</text>
+      </view>
+    </view>
+    <view class="panel empty-ability" wx:else>
+      <view class="empty-title">暂无能力画像</view>
+      <view class="empty-desc">记录一场比赛并选择赛后复盘标签后，iDebate 会自动生成你的能力画像。</view>
+    </view>
+
+    <view class="section-title" wx:if="{{ hasTagData }}">常见优势</view>
+    <view class="panel tag-summary" wx:if="{{ hasTagData }}">
+      <view class="summary-tag" wx:for="{{ strengths }}" wx:key="key">
+        <text>{{ index + 1 }}. {{ item.label }}</text>
+        <text>{{ item.count }}次</text>
+      </view>
+      <view class="summary-empty" wx:if="{{ strengths.length === 0 }}">暂无优势标签</view>
+    </view>
+
+    <view class="section-title" wx:if="{{ hasTagData }}">高频短板</view>
+    <view class="panel tag-summary" wx:if="{{ hasTagData }}">
+      <view class="summary-tag" wx:for="{{ weaknesses }}" wx:key="key">
+        <text>{{ index + 1 }}. {{ item.label }}</text>
+        <text>{{ item.count }}次</text>
+      </view>
+      <view class="summary-empty" wx:if="{{ weaknesses.length === 0 }}">暂无短板标签</view>
+    </view>
+
+    <view class="section-title">最近比赛</view>
+    <view class="panel match-row" wx:for="{{ matches }}" wx:key="id">
+      <view class="row">
+        <text class="match-name">{{ item.name }}</text>
+        <text class="pill {{ item.result === 'WIN' ? '' : 'dark' }}">{{ item.result === 'WIN' ? '胜' : '负' }}</text>
+      </view>
+      <view class="muted topic">{{ item.topic }}</view>
+    </view>
+
+    <view class="feature-area">
+      <view class="feature-card report-entry" bindtap="toMonthlyReport">
+        <view class="report-dot"></view>
+        <view class="feature-main">
+          <view class="report-title">月度报告</view>
+          <view class="report-en">MONTHLY REPORT</view>
+          <view class="report-desc">查看你的本月辩论成长记录</view>
+        </view>
+        <view class="report-arrow">›</view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:else class="login-card">
+    <view class="login-title">登录后查看你的辩手档案</view>
+    <view class="login-desc">同步比赛、称号与月度报告，记录每一次成长。</view>
+    <view class="login-btn" bindtap="login">微信登录</view>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+@import "../../app.wxss";
+
+.ability-box {
+  margin-top: 30rpx;
+  padding: 24rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.ability-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.ability-row:last-child {
+  margin-bottom: 0;
+}
+
+.ability-label {
+  width: 92rpx;
+  color: #222222;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.ability-track {
+  flex: 1;
+  height: 18rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+  background: rgba(143, 29, 29, 0.12);
+}
+
+.ability-fill {
+  height: 100%;
+  border-radius: 20rpx;
+  background: #8f1d1d;
+}
+
+.ability-value {
+  width: 58rpx;
+  text-align: right;
+  color: #222222;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.badge-list {
+  margin-top: 12rpx;
+}
+
+.badge-text {
+  display: inline-block;
+  margin-top: 12rpx;
+  margin-right: 10rpx;
+  padding: 6rpx 14rpx;
+  border-radius: 14rpx;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 22rpx;
+}
+
+.match-card-home {
+  margin-bottom: 24rpx;
+}
+
+.match-name {
+  margin-left: 16rpx;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.match-topic {
+  margin: 20rpx 0;
+  color: #222222;
+  font-size: 26rpx;
+  line-height: 1.45;
+}

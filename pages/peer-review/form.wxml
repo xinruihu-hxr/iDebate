@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">评价 {{ targetName }}</text>
+    <text class="app-slogan">评价将以匿名形式展示给队友，用于完善能力画像。</text>
+  </view>
+
+  <view class="panel">
+    <view class="review-help">不用打分很复杂，只需选择你对队友本场表现的真实印象。</view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">队友亮点</text><text class="tag-limit">最多选3个</text></view>
+      <view class="tag-list">
+        <view wx:for="{{ highlightOptions }}" wx:key="key" class="tag-chip {{ item.selected ? 'active' : '' }}" data-group="peerHighlightTags" data-key="{{ item.key }}" bindtap="toggleTag">{{ item.label }}</view>
+      </view>
+    </view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">待提升</text><text class="tag-limit">最多选2个</text></view>
+      <view class="tag-list">
+        <view wx:for="{{ problemOptions }}" wx:key="key" class="tag-chip {{ item.selected ? 'active' : '' }}" data-group="peerProblemTags" data-key="{{ item.key }}" bindtap="toggleTag">{{ item.label }}</view>
+      </view>
+    </view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">推荐分</text><text class="tag-limit">1-5星</text></view>
+      <view class="star-list">
+        <view wx:for="{{ stars }}" wx:key="*this" class="star {{ peerScore >= item ? 'active' : '' }}" data-score="{{ item }}" bindtap="chooseScore">★</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="field-label">简短评价</text>
+      <textarea class="textarea" maxlength="100" value="{{ comment }}" bindinput="onCommentInput" placeholder="写一句你对TA本场表现的印象，可不填" />
+    </view>
+  </view>
+
+  <view class="save-space"></view>
+  <view class="button-primary" bindtap="submit">提交评价</view>
+</view>

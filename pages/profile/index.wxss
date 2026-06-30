@@ -1,0 +1,199 @@
+@import "../../app.wxss";
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 22rpx;
+  padding: 30rpx;
+  border: 3rpx solid #8f1d1d;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.avatar-wrap,
+.avatar {
+  width: 112rpx;
+  height: 112rpx;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #8f1d1d;
+  color: #ffffff;
+  font-size: 44rpx;
+  font-weight: 900;
+}
+
+.profile-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-name {
+  color: #222222;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.profile-meta {
+  margin-top: 8rpx;
+  color: #222222;
+  font-size: 24rpx;
+}
+
+.edit-button {
+  padding: 12rpx 18rpx;
+  border: 3rpx solid #8f1d1d;
+  color: #8f1d1d;
+  background: #fff7d6;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.yellow-card {
+  background: #ebdb79;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.white-card {
+  background: #ffffff;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.full-card {
+  flex: 1 1 100%;
+}
+
+.title-card {
+  min-height: 170rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.red-card {
+  background: #8f1d1d;
+  box-shadow: 0 8rpx 0 #8f1d1d;
+}
+
+.red-card .card-title,
+.red-card .card-desc,
+.red-card .card-icon {
+  color: #ffffff;
+}
+
+.team-list {
+  padding: 0;
+  overflow: hidden;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  padding: 24rpx;
+  border-bottom: 2rpx solid #ebdb79;
+}
+
+.team-row:last-child {
+  border-bottom: 0;
+}
+
+.team-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76rpx;
+  height: 76rpx;
+  background: #fff7d6;
+  color: #8f1d1d;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.team-logo image {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+.team-info {
+  flex: 1;
+}
+
+.team-name {
+  color: #222222;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.team-meta {
+  margin-top: 8rpx;
+  color: #222222;
+  font-size: 24rpx;
+}
+
+.team-arrow {
+  color: #8f1d1d;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.empty-card {
+  padding: 30rpx;
+  border: 3rpx dashed #8f1d1d;
+  background: #ffffff;
+}
+
+.empty-title {
+  color: #222222;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.empty-desc {
+  margin-top: 10rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.badge-text {
+  display: inline-block;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  padding: 6rpx 14rpx;
+  border-radius: 14rpx;
+  background: #8f1d1d;
+  color: #ffffff;
+  font-size: 22rpx;
+}
+
+.badge-row {
+  margin-top: 12rpx;
+  max-height: 76rpx;
+  overflow: hidden;
+}
+
+.settings-card {
+  padding: 0;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx;
+  color: #222222;
+  font-size: 26rpx;
+  border-bottom: 2rpx solid #ebdb79;
+}
+
+.setting-row:last-child {
+  border-bottom: 0;
+}

@@ -1,0 +1,33 @@
+<view class="page">
+  <block wx:if="{{ member }}">
+    <view class="hero-card">
+      <text class="app-title">{{ member.name }}</text>
+      <text class="app-slogan">{{ team.name }} · {{ member.position }} · {{ member.role }}</text>
+      <view class="stats-overview">
+        <view class="stat-item">
+          <text class="stat-value">{{ totalMatches }}</text>
+          <text class="stat-label">队内场次</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-value">{{ winRate }}%</text>
+          <text class="stat-label">队伍胜率</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-title">成员信息</view>
+    <view class="panel">
+      <view class="info-row"><text>姓名</text><text>{{ member.name }}</text></view>
+      <view class="info-row"><text>身份</text><text>{{ member.role }}</text></view>
+      <view class="info-row"><text>常用辩位</text><text>{{ member.position }}</text></view>
+      <view class="info-row"><text>所属队伍</text><text>{{ team.name }}</text></view>
+      <view class="info-row"><text>学校</text><text>{{ team.school }}</text></view>
+    </view>
+
+    <view class="section-title">近期代表赛</view>
+    <view class="panel paragraph" wx:if="{{ bestMatch }}">
+      <view class="match-name">{{ bestMatch.name }}</view>
+      <view class="muted topic">{{ bestMatch.topic }}</view>
+    </view>
+  </block>
+</view>

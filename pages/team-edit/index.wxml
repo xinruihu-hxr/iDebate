@@ -1,0 +1,34 @@
+<view class="page">
+  <block wx:if="{{ team }}">
+    <view class="hero-card">
+      <text class="app-title">编辑队伍</text>
+      <text class="app-slogan">队长可维护队伍公开信息与邀请码</text>
+    </view>
+
+    <view class="panel">
+      <view class="field">
+        <text class="field-label">队伍名称</text>
+        <input class="input" value="{{ team.name }}" data-field="name" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">学校</text>
+        <input class="input" value="{{ team.school }}" data-field="school" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">简介</text>
+        <textarea class="textarea" value="{{ team.description }}" data-field="description" bindinput="onInput" />
+      </view>
+      <view class="field">
+        <text class="field-label">Logo 链接</text>
+        <input class="input" value="{{ team.logoUrl }}" data-field="logoUrl" bindinput="onInput" placeholder="https://" />
+      </view>
+      <view class="field">
+        <text class="field-label">邀请码</text>
+        <input class="input" value="{{ team.inviteCode }}" data-field="inviteCode" bindinput="onInput" />
+      </view>
+    </view>
+
+    <view class="save-space"></view>
+    <view class="button-primary" bindtap="submit">保存队伍信息</view>
+  </block>
+</view>

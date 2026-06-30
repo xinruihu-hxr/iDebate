@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">完善资料</text>
+    <text class="app-slogan">首次进入 iDebate 前，请先补全辩手档案</text>
+  </view>
+
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">昵称</text>
+      <input class="input" value="{{ profile.nickname }}" data-field="nickname" bindinput="onInput" placeholder="请输入昵称" />
+    </view>
+    <view class="field">
+      <text class="field-label">学校</text>
+      <input class="input" value="{{ profile.school }}" data-field="school" bindinput="onInput" placeholder="请输入学校" />
+    </view>
+    <view class="field">
+      <text class="field-label">年级</text>
+      <input class="input" value="{{ profile.grade }}" data-field="grade" bindinput="onInput" placeholder="例如：2026级" />
+    </view>
+    <view class="field">
+      <text class="field-label">专业</text>
+      <input class="input" value="{{ profile.major }}" data-field="major" bindinput="onInput" placeholder="请输入专业" />
+    </view>
+    <view class="field">
+      <text class="field-label">个人简介（选填）</text>
+      <textarea class="textarea" value="{{ profile.bio }}" data-field="bio" bindinput="onInput" placeholder="写一句你的辩论风格" />
+    </view>
+  </view>
+
+  <view class="save-space"></view>
+  <view class="button-primary" bindtap="submit">完成并进入首页</view>
+</view>

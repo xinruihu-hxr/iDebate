@@ -1,0 +1,130 @@
+<view class="page">
+  <view class="hero-card compact-hero">
+    <text class="app-title">比赛表单</text>
+    <text class="app-slogan">选择队伍、确认阵容，再记录复盘</text>
+  </view>
+
+  <view wx:if="{{ noTeam }}" class="panel empty-team">
+    <view class="empty-title">请先加入或创建队伍</view>
+    <view class="empty-desc">新增比赛需要先选择队伍，阵容成员只能来自该队伍。</view>
+    <view class="empty-actions">
+      <view class="mini-button primary" bindtap="toCreateTeam">创建队伍</view>
+      <view class="mini-button" bindtap="toJoinTeam">加入队伍</view>
+    </view>
+  </view>
+
+  <view wx:else class="panel">
+    <view class="step-title">1. 选择队伍</view>
+    <view class="field">
+      <text class="field-label">请选择本场比赛所属队伍</text>
+      <picker value="{{ teamIndex }}" range="{{ teamNames }}" bindchange="onTeamChange">
+        <view class="picker-box">{{ currentTeam ? currentTeam.name : '请选择队伍' }}</view>
+      </picker>
+    </view>
+    <view wx:if="{{ memberShortage }}" class="warning-text">当前队伍成员不足4人，仍可继续记录。</view>
+  </view>
+
+  <view wx:if="{{ currentTeam }}" class="panel">
+    <view class="step-title">2. 选择阵容</view>
+    <view class="lineup-help">一辩、二辩、三辩、四辩只能从当前队伍成员中选择。</view>
+    <view class="field" wx:for="{{ lineupRows }}" wx:key="key">
+      <text class="field-label">{{ item.label }}</text>
+      <picker value="{{ item.index }}" range="{{ teamMemberNames }}" data-position="{{ item.key }}" bindchange="onLineupChange">
+        <view class="picker-box">{{ item.selectedName }}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="panel">
+    <view class="step-title">3. 填写比赛信息</view>
+    <view class="field">
+      <text class="field-label">比赛名称</text>
+      <input class="input" value="{{ match.name }}" data-field="name" bindinput="onInput" placeholder="例如：黄金联赛特邀赛" />
+    </view>
+    <view class="field">
+      <text class="field-label">赛事名称</text>
+      <input class="input" value="{{ match.eventName }}" data-field="eventName" bindinput="onInput" placeholder="例如：2026高校黄金联赛" />
+    </view>
+    <view class="field">
+      <text class="field-label">辩题</text>
+      <textarea class="textarea" value="{{ match.topic }}" data-field="topic" bindinput="onInput" placeholder="输入完整辩题" />
+    </view>
+    <view class="field">
+      <text class="field-label">比赛时间</text>
+      <picker mode="date" value="{{ match.matchTime }}" bindchange="onDateChange">
+        <view class="picker-box">{{ match.matchTime }}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="field-label">持方</text>
+      <picker value="{{ sideIndex }}" range="{{ sideLabels }}" bindchange="onSideChange">
+        <view class="picker-box">{{ selectedSideLabel }}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="field-label">我的辩位</text>
+      <picker value="{{ positionIndex }}" range="{{ positionLabels }}" bindchange="onPositionChange">
+        <view class="picker-box">{{ selectedPositionLabel }}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="field-label">比赛结果</text>
+      <picker value="{{ resultIndex }}" range="{{ resultLabels }}" bindchange="onResultChange">
+        <view class="picker-box">{{ selectedResultLabel }}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="field-label">综合评分</text>
+      <input class="input" type="number" value="{{ match.score }}" bindinput="onScoreInput" />
+    </view>
+    <view class="field">
+      <text class="field-label">最佳辩手</text>
+      <switch checked="{{ match.isBestDebater }}" bindchange="onBestDebaterChange" color="#8f1d1d" />
+    </view>
+  </view>
+
+  <view class="section-title">赛后复盘标签</view>
+  <view class="panel">
+    <view class="review-help">不用打分，只需选择本场几个关键词，iDebate 会自动生成你的辩手画像。</view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">本场亮点</text><text class="tag-limit">最多选3个</text></view>
+      <view class="tag-list">
+        <view wx:for="{{ highlightTagOptions }}" wx:key="key" class="tag-chip {{ item.selected ? 'active' : '' }}" data-group="highlightTags" data-key="{{ item.key }}" bindtap="toggleTag">{{ item.label }}</view>
+      </view>
+    </view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">本场不足</text><text class="tag-limit">最多选3个</text></view>
+      <view class="tag-list">
+        <view wx:for="{{ problemTagOptions }}" wx:key="key" class="tag-chip {{ item.selected ? 'active' : '' }}" data-group="problemTags" data-key="{{ item.key }}" bindtap="toggleTag">{{ item.label }}</view>
+      </view>
+    </view>
+
+    <view class="tag-group">
+      <view class="tag-header"><text class="tag-title">本场职责</text><text class="tag-limit">最多选3个</text></view>
+      <view class="tag-list">
+        <view wx:for="{{ roleTagOptions }}" wx:key="key" class="tag-chip {{ item.selected ? 'active' : '' }}" data-group="roleTags" data-key="{{ item.key }}" bindtap="toggleTag">{{ item.label }}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">4. 赛后复盘</view>
+  <view class="panel">
+    <view class="field">
+      <text class="field-label">对手姓名</text>
+      <input class="input" value="{{ opponentsText }}" bindinput="onOpponentsInput" placeholder="多人用顿号或逗号分隔" />
+    </view>
+    <view class="field">
+      <text class="field-label">比赛录像链接</text>
+      <input class="input" value="{{ match.videoUrl }}" data-field="videoUrl" bindinput="onInput" placeholder="https://" />
+    </view>
+    <view class="field">
+      <text class="field-label">复盘总结</text>
+      <textarea class="textarea" value="{{ match.review }}" data-field="review" bindinput="onInput" placeholder="记录亮点、问题和下一步训练目标" />
+    </view>
+  </view>
+
+  <view class="save-space"></view>
+  <view class="button-primary" bindtap="submit">保存比赛</view>
+</view>

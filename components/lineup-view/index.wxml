@@ -1,0 +1,4 @@
+<view class="lineup">
+  <view class="name">{{ name }}</view>
+  <view class="muted">一辩 / 二辩 / 三辩 / 四辩</view>
+</view>

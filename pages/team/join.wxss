@@ -1,0 +1,22 @@
+@import "../../app.wxss";
+
+.compact-hero {
+  padding-bottom: 34rpx;
+}
+
+.invite-input {
+  font-size: 34rpx;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.join-hint {
+  margin-top: 20rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.save-space {
+  height: 28rpx;
+}

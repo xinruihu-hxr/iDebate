@@ -1,0 +1,4 @@
+<view class="match-card">
+  <view class="name">{{ name }}</view>
+  <view class="result">{{ result }}</view>
+</view>

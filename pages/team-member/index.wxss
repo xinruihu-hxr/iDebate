@@ -1,0 +1,29 @@
+@import "../../app.wxss";
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #ebdb79;
+  font-size: 28rpx;
+}
+
+.info-row:last-child {
+  border-bottom: 0;
+}
+
+.paragraph {
+  color: #222222;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.match-name {
+  margin-bottom: 12rpx;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.topic {
+  line-height: 1.45;
+}

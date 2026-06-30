@@ -1,0 +1,26 @@
+@import "../../app.wxss";
+
+.member-card,
+.history-card {
+  margin-bottom: 20rpx;
+}
+
+.member-card-hover {
+  transform: translateY(2rpx);
+  box-shadow: 2rpx 2rpx 0 #8f1d1d;
+}
+
+.sub-card-hover {
+  transform: translateY(2rpx);
+}
+
+.member-name,
+.history-name {
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.history-topic {
+  margin-top: 12rpx;
+  line-height: 1.45;
+}

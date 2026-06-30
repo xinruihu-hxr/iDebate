@@ -1,0 +1,9 @@
+@import "../../app.wxss";
+
+.loading-text {
+  padding-top: 120rpx;
+  color: #222222;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 800;
+}

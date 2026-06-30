@@ -1,0 +1,66 @@
+<view class="page">
+  <block wx:if="{{ profile }}">
+    <view class="hero-card">
+      <text class="app-title">{{ profile.nickname }}</text>
+      <text class="app-slogan">{{ profile.school }} · {{ teamName }}</text>
+      <view class="stats-overview">
+        <view class="stat-item"><text class="stat-value">{{ stats.totalMatches }}</text><text class="stat-label">总场次</text></view>
+        <view class="stat-item"><text class="stat-value">{{ stats.winRate }}%</text><text class="stat-label">胜率</text></view>
+        <view class="stat-item"><text class="stat-value">{{ stats.bestPosition }}</text><text class="stat-label">最佳辩位</text></view>
+      </view>
+    </view>
+
+    <view class="section-title">称号墙</view>
+    <view class="panel title-wall">
+      <text class="title-badge" wx:for="{{ titles }}" wx:key="*this">{{ item }}</text>
+    </view>
+
+    <view class="section-title">能力画像</view>
+    <view class="panel" wx:if="{{ hasTagData }}">
+      <view class="recommended-card">
+        <text class="recommended-label">推荐辩位</text>
+        <text class="recommended-value">{{ recommendedPosition }}</text>
+      </view>
+      <view class="supplement-card">
+        <text class="recommended-label">互评补充度：{{ peerReviewSupplement }}%</text>
+        <text class="supplement-desc">队友评价可作为自评之外的补充参考。</text>
+      </view>
+      <view class="ability-row" wx:for="{{ abilities }}" wx:key="key">
+        <text class="ability-label">{{ item.label }}</text>
+        <view class="ability-track"><view class="ability-fill" style="width: {{ item.width }}"></view></view>
+        <text class="ability-value">{{ item.value }}</text>
+      </view>
+    </view>
+    <view class="panel empty-ability" wx:else>
+      <view class="empty-title">暂无能力画像</view>
+      <view class="empty-desc">记录一场比赛并选择赛后复盘标签后，iDebate 会自动生成你的能力画像。</view>
+    </view>
+
+    <view class="section-title" wx:if="{{ hasTagData }}">常见优势</view>
+    <view class="panel tag-summary" wx:if="{{ hasTagData }}">
+      <view class="summary-tag" wx:for="{{ strengths }}" wx:key="key">
+        <text>{{ index + 1 }}. {{ item.label }}</text>
+        <text>{{ item.count }}次</text>
+      </view>
+      <view class="summary-empty" wx:if="{{ strengths.length === 0 }}">暂无优势标签</view>
+    </view>
+
+    <view class="section-title" wx:if="{{ hasTagData }}">高频短板</view>
+    <view class="panel tag-summary" wx:if="{{ hasTagData }}">
+      <view class="summary-tag" wx:for="{{ weaknesses }}" wx:key="key">
+        <text>{{ index + 1 }}. {{ item.label }}</text>
+        <text>{{ item.count }}次</text>
+      </view>
+      <view class="summary-empty" wx:if="{{ weaknesses.length === 0 }}">暂无短板标签</view>
+    </view>
+
+    <view class="section-title">最近比赛</view>
+    <view class="panel match-row" wx:for="{{ matches }}" wx:key="id">
+      <view class="row">
+        <text class="match-name">{{ item.name }}</text>
+        <text class="pill {{ item.result === 'WIN' ? '' : 'dark' }}">{{ item.result === 'WIN' ? '胜' : '负' }}</text>
+      </view>
+      <view class="muted topic">{{ item.topic }}</view>
+    </view>
+  </block>
+</view>

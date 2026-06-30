@@ -1,0 +1,138 @@
+@import "../../app.wxss";
+
+.title-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.title-badge {
+  padding: 10rpx 18rpx;
+  border-radius: 18rpx;
+  color: #ffffff;
+  background: #8f1d1d;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.ability-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+
+.ability-label {
+  width: 92rpx;
+  color: #222222;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.ability-track {
+  flex: 1;
+  height: 18rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+  background: rgba(143, 29, 29, 0.12);
+}
+
+.ability-fill {
+  height: 100%;
+  border-radius: 20rpx;
+  background: #8f1d1d;
+}
+
+.ability-value {
+  width: 58rpx;
+  text-align: right;
+  color: #8f1d1d;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.recommended-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 26rpx;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #fff7d6;
+}
+
+.supplement-card {
+  margin-bottom: 26rpx;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #ffffff;
+  border: 3rpx solid #8f1d1d;
+}
+
+.supplement-desc {
+  display: block;
+  margin-top: 10rpx;
+  color: #222222;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.recommended-label {
+  color: #222222;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.recommended-value {
+  color: #8f1d1d;
+  font-size: 38rpx;
+  font-weight: 900;
+}
+
+.empty-title {
+  color: #222222;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.empty-desc {
+  margin-top: 14rpx;
+  color: #222222;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.tag-summary {
+  margin-bottom: 16rpx;
+}
+
+.summary-tag {
+  display: flex;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  color: #222222;
+  font-size: 26rpx;
+  font-weight: 800;
+}
+
+.summary-tag + .summary-tag {
+  border-top: 1rpx solid #ebdb79;
+}
+
+.summary-empty {
+  color: #222222;
+  font-size: 26rpx;
+}
+
+.match-row {
+  margin-bottom: 20rpx;
+}
+
+.match-name {
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.topic {
+  margin-top: 14rpx;
+  line-height: 1.45;
+}

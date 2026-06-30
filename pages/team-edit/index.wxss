@@ -1,0 +1,5 @@
+@import "../../app.wxss";
+
+.save-space {
+  height: 28rpx;
+}

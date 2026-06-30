@@ -1,0 +1,78 @@
+@import "../../app.wxss";
+
+.detail-title {
+  margin-top: 22rpx;
+  font-size: 46rpx;
+}
+
+.score {
+  color: #222222;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.paragraph {
+  color: #222222;
+  font-size: 28rpx;
+  line-height: 1.65;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #ebdb79;
+  font-size: 28rpx;
+}
+
+.info-row:last-child {
+  border-bottom: 0;
+}
+
+.opponent-line {
+  margin-top: 14rpx;
+}
+
+.unlink-button {
+  margin-top: 24rpx;
+}
+
+.peer-card {
+  color: #222222;
+}
+
+.peer-title {
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.peer-desc {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  font-weight: 800;
+}
+
+.peer-note,
+.peer-meta {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.peer-status {
+  margin-top: 20rpx;
+  color: #8f1d1d;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.peer-button {
+  display: inline-flex;
+  margin-top: 24rpx;
+  padding: 12rpx 22rpx;
+  border-radius: 18rpx;
+  color: #ffffff;
+  background: #8f1d1d;
+  font-size: 26rpx;
+  font-weight: 900;
+}
